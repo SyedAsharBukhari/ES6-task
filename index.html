@@ -302,74 +302,431 @@
 // console.log({...originalObject, ...copiedObjects})
 
 
-
-// let objects1 = {
-//     name:"ashar",
-//     age :20,
-//     course:"webdevelopment"
-// }
-// let objects2 = {
-//     name:"arsal",
-//     age :25,
-//     course:"digital marketing"
-// }
-
-// let mergedObject ={...objects1,...objects2}
-// console.log(mergedObject);
-
-
-// let user={
-//  name:"ashar",
-//  age:20,
-//  email:"ashar@gmail.com"
-
-// }
-// let updatedUser={...user}
-// updatedUser.email ="asharkhalil@gmail.com"
-// console.log(updatedUser);
-
-
-// let num =[2,4,6]
-// function sum (a,b,c){
-//    console.log(a+b+c);
-    
-// }
-// sum(...num);
-
-
-
-// function multiply(num, ...num1) {
-//    return num1.map(n => n * num);
-// }
-
-// console.log(multiply(2, 3, 4, 5))
-
-
-
-// let arr= [2,6,5,[6,9,8]]
-
-// console.log(arr);
-
-// let copyarr = [...arr]
-
-// copyarr[2] = 100;
-
-// copyarr[3][0] = 55
-
-// console.log("Original:", arr);
-// console.log("Copied:", copyarr);
-
-
-function sum(...numbers) {
-  return numbers.reduce((total, n) => total + n,0);
+let obj1 = {
+  name: "ashar",
+  age: 20,
 }
 
 
-console.log(sum(2, 3));  
+let obj2 = {
+  name: "khalil",
+  gender: "male",
+}
+
+let mergeobj = {...obj1,...obj2}
+console.log(mergeobj)
+
+
+let user = {
+  name: "ashar",
+  age: 20,
+  email: "ashar@gmail.com"
+}
+
+let updatedUser = {...user, email: "syed@gmail.com", address: "bufferzone"}
+console.log(updatedUser)
+
+let array = [1,2,3]
+
+function sum(a,b,c) {
+  return a + b + c
+}
+
+console.log(sum(...array))
 
 
 
 
+
+let array1 = [1,2,3]
+let array2 = [4,5,6]
+
+function combineArrays(...params) {
+  return params.flat()
+}
+
+console.log(combineArrays(array1,array2))
+
+
+
+function multiply(data, ...datas) {
+  let final = datas.map((item) => item * data);
+  return final;
+}
+
+const result = multiply(2, 3, 1, 4);
+console.log("multiplying:", result);
+
+
+
+
+let arrays = [[1,2,3], [23, [52]]]
+
+let shallowcopy = [...arrays]
+
+shallowcopy[0][0] = "ashar"
+
+console.log(shallowcopy)
+console.log(arrays)
+
+
+
+
+
+// function sum(...params) {
+//   return params[0] + params[1] + params[2] + params[3]
+// }
+
+// let results = sum(1,2,3,4) 
+
+// console.log(results)
+
+// function sum(...params) {
+//   let result = params.reduce((acc, curr) => acc + curr )
+//   return result
+// }
+
+// let results = sum(1,2,3,4) 
+
+// console.log(results)
+
+
+// function sum(...params) {
+//   let datass = 0;
+//   let result = params.map((acc) => { 
+//     datass += acc;
+//     return datass
+//   } )
+//   return result
+// }
+
+// let results = sum(1,2,3,4) 
+
+// console.log(results)
+
+// function sum(...params) {
+//   let datass = 0;
+// for(let num of params){
+//   datass += num;
+// }
+// return datass
+// }
+
+// let results = sum(1,2,3,4) 
+
+// console.log(results)
+
+
+function average(...params) {
+  let data = params.reduce((acc,curr) => acc + curr)
+  let result = data / params.length
+  return result; 
+}
+
+console.log(average(1,2,3,4,5,6))
+
+
+// let newarray = [1,2,3,4,5,6];
+
+// let [first, ...data] = newarray;
+// console.log(first) 
+// console.log(data) 
+// console.log(newarray) 
+
+
+// let colorss = ["red", "green", "blue"]
+// let [first, second, ...data] = colorss;
+// console.log(first) 
+// console.log(second) 
+// console.log(data) 
+
+
+
+// let colorss = ["red", "green", "blue", "orange"]
+// let [, , ...data] = colorss;
+// console.log(data) 
+
+
+  // let person = {
+  //   name: 'ashar',
+  //   age:20,
+  //   email: "ashar@gmail.com",
+  //   address: "bufferzone"
+  // }
+
+  // let {name, age, ...rest} = person;
+
+
+  // console.log(name)
+  // console.log(age)
+  // console.log(rest)
+
+
+
+let student = {
+  id: 101,
+  name: 'Ali',
+  grades: [80,90],
+  info: {
+    age: {
+      new12: "hello"
+    },
+    major: 'Computer Science'
+        }
+}
+
+
+
+// let {id,name: fname, info: {age: {new12 } }, ...rest} = student;
+// console.log(id,fname)
+// //console.log(major)
+// console.log(new12)
+
+
+
+
+
+// function filterEven(...params) {
+// let data = params.filter((items) => items % 2 === 0)
+// return data
+// }
+
+// console.log(filterEven(1,2,3,4,5,6))
+
+
+
+// function combineAndSort(...params) {
+//   let singlearray = params.flat()
+// let data = singlearray.sort((a,b) => a - b)
+// return data
+// }
+
+// console.log(combineAndSort([45,40], [10,120], [5,185,2,7]))
+
+
+
+// let fruits = ["apple", "banana", "cheery"]
+
+// let [primaryColor, ,tertiaryColor] = fruits;
+
+// console.log(primaryColor,tertiaryColor)
+
+
+
+let person = {
+  name: "ashar",
+  age: 50,
+  city: "karachi"
+}
+
+let {name, age, city} = person;
+console.log(name)
+console.log(age)
+console.log(city)
+
+
+
+
+let car = {
+  make: "carolla",
+  model: 2025,
+  year: 2028
+}
+
+let {make: carMake, model: carModel, year: carYear} = car;
+
+console.log(carMake)
+console.log(carModel)
+console.log(carYear)
+
+
+
+
+let settings = {
+  theme: "monitora",
+  // language: "urdu",
+}
+
+let {theme, language = "English"} = settings;
+
+console.log(theme)
+console.log(language)
+
+
+
+let nestedarray = [[1, 2], [3, 4],[5, 6]]
+
+let [[a],[b],[c]] = nestedarray;
+
+console.log(a)
+console.log(b)
+console.log(c)
+
+
+let profile = {
+  username: "ashar",
+  details: {
+    email: "ashar@gmail.com",
+    address: "bufferzone",
+  }
+}
+
+let {username, details: {email, address}} = profile;
+console.log(username)
+console.log(email)
+console.log(address)
+
+
+
+
+let data = {
+  id: 5,
+  info: [
+    {names: "Alice"},{ages: 25}
+  ]
+}
+
+let {id ,
+   info: [
+    { names },
+     { ages }
+    ]
+  } = data
+
+  console.log(id)
+  console.log(name)
+  console.log(ages)
+
+
+
+  function printCoordinates(...params) {
+   let [[x,y]] = params;
+    console.log(x)
+    console.log(y)
+  }
+
+printCoordinates(["x","y"])
+
+
+
+
+// function displayUser(...params) {
+//    let [{name,age}] = params;
+//     console.log(name)
+//     console.log(age)
+//   }
+
+// displayUser({name: "hello", age: 30})
+
+
+// let book = {
+//   title: "hello world",
+//   author: "allama iqbal",
+//   year: 2020
+// }
+
+// let keys = Object.keys(book)
+
+// console.log(keys)
+// console.log(keys.length)
+
+
+
+// let product = {
+//   name: "tshirt",
+//   category: "mens",
+//   price: 2000
+// }
+
+// let productkey = Object.keys(product);
+
+// for(let i = 0; i < productkey.length; i++ ){
+//   console.log(`${productkey[i]}: ${product[productkey[i]]} `)
+// }
+
+
+
+
+// let movie = {
+//   title: "hello world",
+//   director: "paul",
+//   year: 2020
+// }
+
+// let keys = Object.values(movie)
+
+// console.log(keys)
+// console.log(keys.length)
+
+
+
+// let scores = {
+//   math: 50,
+//   science: 80,
+//   english: 90,
+// }
+
+// let valuess = Object.values(scores)
+
+//console.log(valuess.reduce((acc,curr) => acc + curr))
+
+
+
+// let cars = {
+//   make: "china",
+//   model: 80,
+//   year: 90,
+// }
+
+// let valuess = Object.entries(cars)
+
+// console.log(valuess)
+
+
+
+let persons = {
+  firstName: "syed",
+  lastname: "ashar",
+  age: 20,
+}
+
+let valuess = Object.entries(persons)
+
+for(let [key, value] of valuess) {
+  console.log(`${key}: ${value}`);
+};
+
+
+
+// let inventory = {
+//   apples: 10,
+//   bananas: 20,
+//   oranges: 40,
+//   grapes: 80,
+// }
+// const inventorykeys = Object.keys(inventory) 
+
+// let filteredKeys = inventorykeys.filter(key => inventory[key] > 10);
+// console.log(filteredKeys)
+
+
+let temperature = {
+  morning: 25,
+  afternoon: 35,
+  evening: 50,
+}
+
+ const inventorykeys = Object.entries(temperature) 
+
+let fahernheight = inventorykeys.map(([key,value]) => {
+
+return  [key, (value * 9/5) + 32] 
+ 
+})
+
+
+
+console.log(Object.fromEntries(fahernheight))
 
 </script>
 
